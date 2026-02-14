@@ -1,0 +1,137 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: background 0.3s, color 0.3s; }
+
+body.light-theme { background-color: #f0f2f5; color: #333; }
+body.dark-theme { background-color: #0f0f0f; color: #fff; }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.light-theme .navbar { background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #ddd; }
+.brand-title { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; color: #0084ff; }
+
+.theme-switch-wrapper { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; }
+.theme-switch { position: relative; width: 40px; height: 20px; }
+.theme-switch input { display: none; }
+.slider { background-color: #444; border-radius: 34px; position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; }
+.slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .4s; }
+input:checked + .slider { background-color: #0084ff; }
+input:checked + .slider:before { transform: translateX(20px); }
+
+.header-minimal { padding: 15px 5%; text-align: center; }
+.welcome-banner {
+    font-size: 0.85rem;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #0052d4, #4364f7, #6fb1fc);
+    color: white;
+    border-radius: 12px;
+    display: inline-block;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 82, 212, 0.3);
+}
+
+.swiper { width: 100%; padding: 30px 0 60px; }
+.card {
+    background: #1e1e1e;
+    border-radius: 24px;
+    padding: 18px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.light-theme .card { background: white; border: 1px solid #eee; }
+
+.logo-area {
+    height: 140px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    overflow: hidden;
+}
+
+.logo-area img { width: 85%; height: 85%; object-fit: contain; }
+.logo-contain img { width: 65%; height: 65%; }
+.logo-full img { width: 100%; height: 100%; object-fit: cover; }
+.logo-large img { width: 95%; height: 95%; }
+
+.card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+
+/* TÍTULO CON ICONO MINI */
+.title-with-icon { 
+    font-size: 0.75rem; 
+    opacity: 0.6; 
+    margin-top: 10px; 
+    text-transform: uppercase; 
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.mini-icon {
+    height: 18px;
+    width: auto;
+    object-fit: contain;
+}
+
+.precio-tit { font-size: 1.4rem; font-weight: 800; color: #0084ff; margin: 5px 0; }
+.precio-sub { font-size: 1rem; font-weight: 600; opacity: 0.8; }
+
+.btn-adquirir {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #0084ff;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.2s, background 0.2s;
+}
+.btn-adquirir:hover { background: #0066cc; transform: scale(1.03); }
+
+/* WHATSAPP VISIBLE EN IPHONE */
+.wsp-float { 
+    position: fixed; 
+    bottom: 20px; 
+    left: 20px; 
+    display: flex; 
+    align-items: center; 
+    z-index: 99999; 
+    text-decoration: none; 
+}
+.wsp-float img { width: 55px; height: 55px; background: #25d366; border-radius: 50%; padding: 12px; z-index: 2; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.wsp-bubble {
+    background: white; 
+    color: #333; 
+    padding: 12px 18px 12px 30px;
+    border-radius: 50px; 
+    margin-left: -25px; 
+    font-weight: 600; 
+    font-size: 0.85rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    white-space: nowrap;
+    display: block !important;
+}
+.dark-theme .wsp-bubble { background: #fff; color: #000; }
+.ping { position: absolute; width: 55px; height: 55px; background: #25d366; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.8); opacity: 0; } }
+
+@media (max-width: 768px) {
+    .brand-title { font-size: 1.2rem; }
+    .wsp-bubble { font-size: 0.75rem; padding: 8px 15px 8px 25px; }
+}
+
+.swiper-pagination-bullet-active { background: #0084ff !important; width: 25px; border-radius: 5px; }
+.swiper-button-next, .swiper-button-prev { color: #0084ff; transform: scale(0.6); }
